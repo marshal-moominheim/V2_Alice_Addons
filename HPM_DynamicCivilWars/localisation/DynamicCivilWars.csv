@@ -1,0 +1,161 @@
+;;;;;;;;;;;;;;;;;;x;;;;;;;;;;;;;;;;;;;;;;x;;;;
+EVTNAME_1776001;The $COUNTRY_ADJ$ Civil War of $YEAR$;;;;;;;;;;;;x
+EVTDESC_1776001;By the start of $YEAR$, the national mood in $COUNTRY$ had moved from ugly to outright bloodthirsty. Across much of the country, the government had outright lost control, leaving opposition forces to seize control of administration. A revolutionary army, though not yet fully constituted, had begun to form. The stage was set for what would become a bloody civil conflict.;;;;;;;;;;;;x
+EVTOPTA_1776001;To arms, for our $GOVERNMENT$!;;;;;;;;;;;;x
+EVTNAME_1776004;The $COUNTRY_ADJ$ Revolution of $YEAR$;;;;;;;;;;;;x
+EVTDESC_1776004;When opposition forces finally overcame the defenses of $CAPITAL$, many in the old regime attempted to flee the country. Some escaped - but many were captured and put on trial. Resistance continued for some time afterwards, but eventually, the final pro-government forces laid down their arms, leaving $COUNTRY$ securely in the hands of the new regime.;;;;;;;;;;;;x
+EVTOPTA_1776004;What will become of $COUNTRY$?;;;;;;;;;;;;x
+EVTNAME_1776005;The $COUNTRY_ADJ$ Opposition Crushed;;;;;;;;;;;;x
+EVTDESC_1776005;On defeating the main opposition armies in the field, government 
+forces moved into pro-opposition cities and villages, arresting opposition 
+leaders and thoroughly cowing the population. A few holdouts remained and were brutally crushed, to become martyrs for the next generation. Though resentment may remain in the hearts of some, make no mistake - $COUNTRY$ is now thoroughly back under the control of the $GOVERNMENT$.;;;;;;;;;;;;x
+EVTOPTA_1776005;Long live $COUNTRY$!;;;;;;;;;;;;x
+EVTNAME_1776006;The Truce Ends;;;;;;;;;;;;x
+EVTDESC_1776006;The brief ceasefire with the rebel forces could never last. As quickly as it ended, the civil war began again, with the brief hope of negotiation extinguished. There can be no peace until there is victory for one side or another.;;;;;;;;;;;;x
+EVTOPTA_1776006;Death to traitors!;;;;;;;;;;;;x
+EVTNAME_1776007;The New Regime in $FROMCOUNTRY$;;;;;;;;;;;;x
+EVTDESC_1776007;After their brutal civil war, a revolutionary faction has taken power in our suzerain. Will we confirm our allegiance to the new regime, or attempt to assert our independence?;;;;;;;;;;;;x
+EVTOPTA_1776007;Our loyalty is to $FROMCOUNTRY$, not its former government.;;;;;;;;;;;;x
+EVTOPTB_1776007;$FROMCOUNTRY$ will no longer rule $COUNTRY$!.;;;;;;;;;;;;x
+provoke_civil_war_title;Provoke Civil War;;;;;;;;;;;;x
+provoke_civil_war_desc;Our domestic enemies are rapidly organizing, but as of now, they are unprepared. By making some key arrests while letting others escape, we can provoke an open conflict before they are ready.;;;;;;;;;;;x
+D51;Rebels;;;;;;;;;;;;x
+D51_ADJ;Rebel;;;;;;;;;;;;x
+D52;Rebels;;;;;;;;;;;;x
+D52_ADJ;Rebel;;;;;;;;;;;;x
+D53;Rebels;;;;;;;;;;;;x
+D53_ADJ;Rebel;;;;;;;;;;;;x
+D54;Rebels;;;;;;;;;;;;x
+D54_ADJ;Rebel;;;;;;;;;;;;x
+D55;Rebels;;;;;;;;;;;;x
+D55_ADJ;Rebel;;;;;;;;;;;;x
+D56;Rebels;;;;;;;;;;;;x
+D56_ADJ;Rebel;;;;;;;;;;;;x
+D57;Rebels;;;;;;;;;;;;x
+D57_ADJ;Rebel;;;;;;;;;;;;x
+D58;Rebels;;;;;;;;;;;;x
+D58_ADJ;Rebel;;;;;;;;;;;;x
+D59;Rebels;;;;;;;;;;;;x
+D59_ADJ;Rebel;;;;;;;;;;;;x
+D60;Rebels;;;;;;;;;;;;x
+D60_ADJ;Rebel;;;;;;;;;;;;x
+D51_democracy;Constitutionalists;;;;;;;;;;;;x
+D51_democracy_ADJ;Constitutionalist;;;;;;;;;;;;x
+D52_democracy;Constitutionalists;;;;;;;;;;;;x
+D52_democracy_ADJ;Constitutionalist;;;;;;;;;;;;x
+D53_democracy;Constitutionalists;;;;;;;;;;;;x
+D53_democracy_ADJ;Constitutionalist;;;;;;;;;;;;x
+D54_democracy;Constitutionalists;;;;;;;;;;;;x
+D54_democracy_ADJ;Constitutionalist;;;;;;;;;;;;x
+D55_democracy;Constitutionalists;;;;;;;;;;;;x
+D55_democracy_ADJ;Constitutionalist;;;;;;;;;;;;x
+D56_democracy;Constitutionalists;;;;;;;;;;;;x
+D56_democracy_ADJ;Constitutionalist;;;;;;;;;;;;x
+D57_democracy;Constitutionalists;;;;;;;;;;;;x
+D57_democracy_ADJ;Constitutionalist;;;;;;;;;;;;x
+D58_democracy;Constitutionalists;;;;;;;;;;;;x
+D58_democracy_ADJ;Constitutionalist;;;;;;;;;;;;x
+D59_democracy;Constitutionalists;;;;;;;;;;;;x
+D59_democracy_ADJ;Constitutionalist;;;;;;;;;;;;x
+D60_democracy;Constitutionalists;;;;;;;;;;;;x
+D60_democracy_ADJ;Constitutionalist;;;;;;;;;;;;x
+D51_presidential_dictatorship;Nationalists;;;;;;;;;;;;x
+D51_presidential_dictatorship_ADJ;Nationalist;;;;;;;;;;;;x
+D52_presidential_dictatorship;Nationalists;;;;;;;;;;;;x
+D52_presidential_dictatorship_ADJ;Nationalist;;;;;;;;;;;;x
+D53_presidential_dictatorship;Nationalists;;;;;;;;;;;;x
+D53_presidential_dictatorship_ADJ;Nationalist;;;;;;;;;;;;x
+D54_presidential_dictatorship;Nationalists;;;;;;;;;;;;x
+D54_presidential_dictatorship_ADJ;Nationalist;;;;;;;;;;;;x
+D55_presidential_dictatorship;Nationalists;;;;;;;;;;;;x
+D55_presidential_dictatorship_ADJ;Nationalist;;;;;;;;;;;;x
+D56_presidential_dictatorship;Nationalists;;;;;;;;;;;;x
+D56_presidential_dictatorship_ADJ;Nationalist;;;;;;;;;;;;x
+D57_presidential_dictatorship;Nationalists;;;;;;;;;;;;x
+D57_presidential_dictatorship_ADJ;Nationalist;;;;;;;;;;;;x
+D58_presidential_dictatorship;Nationalists;;;;;;;;;;;;x
+D58_presidential_dictatorship_ADJ;Nationalist;;;;;;;;;;;;x
+D59_presidential_dictatorship;Nationalists;;;;;;;;;;;;x
+D59_presidential_dictatorship_ADJ;Nationalist;;;;;;;;;;;;x
+D60_presidential_dictatorship;Nationalists;;;;;;;;;;;;x
+D60_presidential_dictatorship_ADJ;Nationalist;;;;;;;;;;;;x
+D51_bourgeois_dictatorship;Radicals;;;;;;;;;;;;x
+D51_bourgeois_dictatorship_ADJ;Radical;;;;;;;;;;;;x
+D52_bourgeois_dictatorship;Radicals;;;;;;;;;;;;x
+D52_bourgeois_dictatorship_ADJ;Radical;;;;;;;;;;;;x
+D53_bourgeois_dictatorship;Radicals;;;;;;;;;;;;x
+D53_bourgeois_dictatorship_ADJ;Radical;;;;;;;;;;;;x
+D54_bourgeois_dictatorship;Radicals;;;;;;;;;;;;x
+D54_bourgeois_dictatorship_ADJ;Radical;;;;;;;;;;;;x
+D55_bourgeois_dictatorship;Radicals;;;;;;;;;;;;x
+D55_bourgeois_dictatorship_ADJ;Radical;;;;;;;;;;;;x
+D56_bourgeois_dictatorship;Radicals;;;;;;;;;;;;x
+D56_bourgeois_dictatorship_ADJ;Radical;;;;;;;;;;;;x
+D57_bourgeois_dictatorship;Radicals;;;;;;;;;;;;x
+D57_bourgeois_dictatorship_ADJ;Radical;;;;;;;;;;;;x
+D58_bourgeois_dictatorship;Radicals;;;;;;;;;;;;x
+D58_bourgeois_dictatorship_ADJ;Radical;;;;;;;;;;;;x
+D59_bourgeois_dictatorship;Radicals;;;;;;;;;;;;x
+D59_bourgeois_dictatorship_ADJ;Radical;;;;;;;;;;;;x
+D60_bourgeois_dictatorship;Radicals;;;;;;;;;;;;x
+D60_bourgeois_dictatorship_ADJ;Radical;;;;;;;;;;;;x
+D51_fascist_dictatorship;Ultranationalists;;;;;;;;;;;;x
+D51_fascist_dictatorship_ADJ;Ultranationalist;;;;;;;;;;;;x
+D52_fascist_dictatorship;Ultranationalists;;;;;;;;;;;;x
+D52_fascist_dictatorship_ADJ;Ultranationalist;;;;;;;;;;;;x
+D53_fascist_dictatorship;Ultranationalists;;;;;;;;;;;;x
+D53_fascist_dictatorship_ADJ;Ultranationalist;;;;;;;;;;;;x
+D54_fascist_dictatorship;Ultranationalists;;;;;;;;;;;;x
+D54_fascist_dictatorship_ADJ;Ultranationalist;;;;;;;;;;;;x
+D55_fascist_dictatorship;Ultranationalists;;;;;;;;;;;;x
+D55_fascist_dictatorship_ADJ;Ultranationalist;;;;;;;;;;;;x
+D56_fascist_dictatorship;Ultranationalists;;;;;;;;;;;;x
+D56_fascist_dictatorship_ADJ;Ultranationalist;;;;;;;;;;;;x
+D57_fascist_dictatorship;Ultranationalists;;;;;;;;;;;;x
+D57_fascist_dictatorship_ADJ;Ultranationalist;;;;;;;;;;;;x
+D58_fascist_dictatorship;Ultranationalists;;;;;;;;;;;;x
+D58_fascist_dictatorship_ADJ;Ultranationalist;;;;;;;;;;;;x
+D59_fascist_dictatorship;Ultranationalists;;;;;;;;;;;;x
+D59_fascist_dictatorship_ADJ;Ultranationalist;;;;;;;;;;;;x
+D60_fascist_dictatorship;Ultranationalists;;;;;;;;;;;;x
+D60_fascist_dictatorship_ADJ;Ultranationalist;;;;;;;;;;;;x
+D51_proletarian_dictatorship;Revolutionaries;;;;;;;;;;;;x
+D51_proletarian_dictatorship_ADJ;Revolutionary;;;;;;;;;;;;x
+D52_proletarian_dictatorship;Revolutionaries;;;;;;;;;;;;x
+D52_proletarian_dictatorship_ADJ;Revolutionary;;;;;;;;;;;;x
+D53_proletarian_dictatorship;Revolutionaries;;;;;;;;;;;;x
+D53_proletarian_dictatorship_ADJ;Revolutionary;;;;;;;;;;;;x
+D54_proletarian_dictatorship;Revolutionaries;;;;;;;;;;;;x
+D54_proletarian_dictatorship_ADJ;Revolutionary;;;;;;;;;;;;x
+D55_proletarian_dictatorship;Revolutionaries;;;;;;;;;;;;x
+D55_proletarian_dictatorship_ADJ;Revolutionary;;;;;;;;;;;;x
+D56_proletarian_dictatorship;Revolutionaries;;;;;;;;;;;;x
+D56_proletarian_dictatorship_ADJ;Revolutionary;;;;;;;;;;;;x
+D57_proletarian_dictatorship;Revolutionaries;;;;;;;;;;;;x
+D57_proletarian_dictatorship_ADJ;Revolutionary;;;;;;;;;;;;x
+D58_proletarian_dictatorship;Revolutionaries;;;;;;;;;;;;x
+D58_proletarian_dictatorship_ADJ;Revolutionary;;;;;;;;;;;;x
+D59_proletarian_dictatorship;Revolutionaries;;;;;;;;;;;;x
+D59_proletarian_dictatorship_ADJ;Revolutionary;;;;;;;;;;;;x
+D60_proletarian_dictatorship;Revolutionaries;;;;;;;;;;;;x
+D60_proletarian_dictatorship_ADJ;Revolutionary;;;;;;;;;;;;x
+D51_absolute_monarchy;Legitimists;;;;;;;;;;;;x
+D51_absolute_monarchy_ADJ;Legitimist;;;;;;;;;;;;x
+D52_absolute_monarchy;Legitimists;;;;;;;;;;;;x
+D52_absolute_monarchy_ADJ;Legitimist;;;;;;;;;;;;x
+D53_absolute_monarchy;Legitimists;;;;;;;;;;;;x
+D53_absolute_monarchy_ADJ;Legitimist;;;;;;;;;;;;x
+D54_absolute_monarchy;Legitimists;;;;;;;;;;;;x
+D54_absolute_monarchy_ADJ;Legitimist;;;;;;;;;;;;x
+D55_absolute_monarchy;Legitimists;;;;;;;;;;;;x
+D55_absolute_monarchy_ADJ;Legitimist;;;;;;;;;;;;x
+D56_absolute_monarchy;Legitimists;;;;;;;;;;;;x
+D56_absolute_monarchy_ADJ;Legitimist;;;;;;;;;;;;x
+D57_absolute_monarchy;Legitimists;;;;;;;;;;;;x
+D57_absolute_monarchy_ADJ;Legitimist;;;;;;;;;;;;x
+D58_absolute_monarchy;Legitimists;;;;;;;;;;;;x
+D58_absolute_monarchy_ADJ;Legitimist;;;;;;;;;;;;x
+D59_absolute_monarchy;Legitimists;;;;;;;;;;;;x
+D59_absolute_monarchy_ADJ;Legitimist;;;;;;;;;;;;x
+D60_absolute_monarchy;Legitimists;;;;;;;;;;;;x
+D60_absolute_monarchy_ADJ;Legitimist;;;;;;;;;;;;x

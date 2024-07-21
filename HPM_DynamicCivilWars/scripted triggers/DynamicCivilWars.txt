@@ -1,0 +1,97 @@
+civil_war_eligible = {
+	main_parameter = province
+	this_parameter = nation		
+	
+	is_overseas = no
+	is_capital = no
+	is_state_capital = yes
+	is_colonial = no	
+	NOT = { has_province_flag = revolt_joiner }
+}
+
+
+will_join_civil_war = {
+	main_parameter = province
+	this_parameter = nation		
+	
+	OR = {
+		has_province_flag = revolt_origin
+		has_province_flag = revolt_joiner
+	}
+}
+
+can_join_civil_war = {
+	main_parameter = province
+	this_parameter = nation		
+	
+		state_scope = { NOT = { any_owned_province = { is_capital = yes } } }
+		is_colonial = no
+		is_overseas = no
+		NOT = { country_units_in_province = THIS }
+		OR = { 
+			controlled_by = this
+			controlled_by_rebels = yes
+		}
+		OR = {
+			has_province_flag = revolt_origin
+			#any_neighbor_province = { 
+			#	limit = { is_capital = no }
+			#	has_province_flag = revolt_origin
+			#}
+			controlled_by_rebels = yes
+			militancy = 6			
+			AND = {
+				OR = { has_country_flag = civil_war_fascist }	
+				OR = {
+					has_province_modifier = fascist_welfare
+					has_province_modifier = beer_hall_putsch
+					has_province_modifier = black_shirts
+					has_province_modifier = free_corps
+					fascist = 0.3
+					reactionary = 0.3
+				}
+			}
+			AND = {
+				OR = { 
+					has_country_flag = civil_war_socialist
+					has_country_flag = civil_war_communist
+				}
+				OR = {
+					has_province_modifier = militant_trade_union
+					has_province_modifier = province_strike
+					has_province_modifier = may_day
+					socialist = 0.3
+					communist = 0.3
+				}
+			}
+			AND = {
+				OR = { 
+					has_country_flag = civil_war_anarcho_liberal
+					has_country_flag = civil_war_liberal
+				}
+				OR = {
+					has_province_modifier = liberal_agitation
+					liberal = 0.3
+					anarcho_liberal = 0.3
+				}
+			}
+			AND = {
+				OR = { 
+					has_country_flag = civil_war_military
+				}
+				OR = {
+					#soldiers = { militancy = 9 }
+					#officers = { militancy = 9 }
+					reactionary = 0.3
+				}
+			}
+		}
+		OR = {
+			is_primary_culture = yes
+			is_accepted_culture = yes
+			has_country_flag = civil_war_communist
+			has_country_flag = civil_war_socialist
+			has_country_flag = civil_war_liberal
+		}
+		
+}

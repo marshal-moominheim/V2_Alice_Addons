@@ -1,0 +1,2034 @@
+
+#CIVIL WAR ERUPTS 
+country_event = {
+	id = 1776001
+	title = "EVTNAME_1776001"
+	desc = "EVTDESC_1776001"
+	picture = "civil_war"
+	
+	major = yes
+
+	allow_multiple_instances = no
+
+	trigger = {
+
+		#Basic things - big enough, civilized
+		
+		number_of_states = 2
+		is_vassal = no	
+		civilized = yes
+		num_of_cities = 1
+		
+		OR = {
+			average_militancy = 8
+			num_of_revolts = 1
+			rebel_power_fraction = 1
+				#any_pop = { #FYI the error is here TODO
+				#	limit = {
+				#		OR = {
+				#			type = soldiers
+				#			type = officers 
+				#		}
+				#	}
+				#	militancy = 9
+				#}
+		}
+
+		NOT = { 
+			has_country_flag = civil_war_has_started 
+			has_country_flag = civil_war_1
+			has_country_flag = civil_war_2
+			has_country_flag = civil_war_3
+			has_country_flag = civil_war_4
+			has_country_flag = civil_war_5
+			has_country_flag = civil_war_6
+			has_country_flag = civil_war_7
+			has_country_flag = civil_war_8
+			has_country_flag = civil_war_9
+			has_country_flag = civil_war_10	
+			tag = D51
+			tag = D52
+			tag = D53
+			tag = D54
+			tag = D55
+			tag = D56
+			tag = D57
+			tag = D58
+			tag = D59
+			tag = D60
+		}
+
+		#There is a clear civil war slot
+		OR = {
+			NOT = { has_global_flag = civil_war_global_1 }
+			NOT = { has_global_flag = civil_war_global_2 }
+			NOT = { has_global_flag = civil_war_global_3 }
+			NOT = { has_global_flag = civil_war_global_4 }
+			NOT = { has_global_flag = civil_war_global_5 }
+			NOT = { has_global_flag = civil_war_global_6 }
+			NOT = { has_global_flag = civil_war_global_7 }
+			NOT = { has_global_flag = civil_war_global_8 }
+			NOT = { has_global_flag = civil_war_global_9 }
+			NOT = { has_global_flag = civil_war_global_10 }
+		}
+					
+	}
+	
+	mean_time_to_happen = { 
+		months = 12
+
+
+		#Militancy
+		modifier = {
+			factor = 0.9
+			average_militancy = 5
+			}
+		modifier = {
+			factor = 0.8 
+			average_militancy = 6 
+			}
+		modifier = {
+			factor = 0.7 
+			average_militancy = 7 
+			}
+		modifier = {
+			factor = 0.6 
+			average_militancy = 8 
+			}
+		modifier = {
+			factor = 0.5 
+			average_militancy = 9 
+			}
+
+		#Government stuff
+		modifier = {
+			factor = 0.7 
+			has_recently_lost_war = yes
+			}
+		modifier = {
+			factor = 0.7 
+			government = absolute_monarchy
+			}
+		modifier = {
+			factor = 0.7 
+			government = fascist_dictatorship 
+			}
+		modifier = {
+			factor = 0.8 
+			government = proletarian_dictatorship 
+			}
+		modifier = {
+			factor = 0.8
+			government = prussian_constitutionalism 
+			}
+		modifier = {
+			factor = 0.8 
+			government = presidential_dictatorship
+			}
+		modifier = {
+			factor = 1.5 
+			press_rights = free_press
+			}
+		modifier = {
+			factor = 1.5 
+			public_meetings = yes_meeting 
+			}
+		modifier = {
+			factor = 1.7 
+			vote_franschise = universal_weighted_voting 
+			}	
+
+		#Rebels stuff
+		modifier = {
+			factor = 0.01
+			capital_scope = { controlled_by_rebels = yes }
+			}
+		modifier = {
+			factor = 0.7
+			revolt_percentage = 0.05
+			}
+		modifier = {
+			factor = 0.5
+			revolt_percentage = 0.1
+			}
+		modifier = {
+			factor = 0.4 
+			revolt_percentage = 0.2
+			}
+		modifier = {
+			factor = 0.3
+			revolt_percentage = 0.3 
+			}
+		modifier = {
+			factor = 0.2
+			revolt_percentage = 0.4
+			}
+		modifier = {
+			factor = 0.1
+			revolt_percentage = 0.5
+			}
+		modifier = {
+			factor = 0.5
+			num_of_revolts = 1 
+			}
+		
+			
+	}
+	
+	immediate = {
+
+		clr_country_flag = civil_war_1
+		clr_country_flag = civil_war_2
+		clr_country_flag = civil_war_3
+		clr_country_flag = civil_war_4
+		clr_country_flag = civil_war_5
+		clr_country_flag = civil_war_6
+		clr_country_flag = civil_war_7
+		clr_country_flag = civil_war_8
+		clr_country_flag = civil_war_9
+		clr_country_flag = civil_war_10
+			
+		clr_country_flag = civil_war_liberal
+		clr_country_flag = civil_war_socialist
+		clr_country_flag = civil_war_communist
+		clr_country_flag = civil_war_fascist
+		clr_country_flag = civil_war_monarchy
+		clr_country_flag = civil_war_military
+		clr_country_flag = civil_war_anarcho_liberal
+
+		any_owned = {
+			remove_core = D51
+			remove_core = D52
+			remove_core = D53
+			remove_core = D54
+			remove_core = D55
+			remove_core = D56
+			remove_core = D57
+			remove_core = D58
+			remove_core = D59
+			remove_core = D60
+			clr_province_flag = revolt_origin
+		}
+
+		###############################################
+		#RESERVE ONE OF 10 REVOLT TAGS
+		###############################################
+
+		if = {
+			limit = { NOT = { has_global_flag = civil_war_global_1 } }
+			#D51 = { all_core = { remove_core = D51 } }
+			set_country_flag = civil_war_1
+			set_global_flag = civil_war_global_1
+			set_variable = {
+				which = civil_war_states_1
+				value = 0
+			}
+			#THIS = { state_scope = { add_core = D51 } }		
+			THIS = { 
+				clr_country_flag = civil_war_2
+				clr_country_flag = civil_war_3
+				clr_country_flag = civil_war_4
+				clr_country_flag = civil_war_5
+				clr_country_flag = civil_war_6
+				clr_country_flag = civil_war_7
+				clr_country_flag = civil_war_8
+				clr_country_flag = civil_war_9
+				clr_country_flag = civil_war_10
+			}
+			any_country = { 
+				clr_country_flag = civil_war_vassal_1
+			}
+			any_country = { 
+				limit = { vassal_of = THIS }
+				set_country_flag = civil_war_vassal_1
+			}
+		}
+		else_if = {
+			limit = { NOT = { has_global_flag = civil_war_global_2 } }
+			#D52 = { all_core = { remove_core = D52 } }
+			set_country_flag = civil_war_2
+			set_global_flag = civil_war_global_2
+			set_variable = {
+				which = civil_war_states_2
+				value = 0
+			}
+			#THIS = { state_scope = { add_core = D52 } }
+			THIS = { 
+				clr_country_flag = civil_war_1
+				clr_country_flag = civil_war_3
+				clr_country_flag = civil_war_4
+				clr_country_flag = civil_war_5
+				clr_country_flag = civil_war_6
+				clr_country_flag = civil_war_7
+				clr_country_flag = civil_war_8
+				clr_country_flag = civil_war_9
+				clr_country_flag = civil_war_10
+			}
+			any_country = { 
+				clr_country_flag = civil_war_vassal_2
+			}
+			any_country = { 
+				limit = { vassal_of = THIS }
+				set_country_flag = civil_war_vassal_2
+			}
+		}
+		else_if = {
+			limit = { NOT = { has_global_flag = civil_war_global_3 } }
+			#D53 = { all_core = { remove_core = D53 } }
+			set_country_flag = civil_war_3
+			set_global_flag = civil_war_global_3
+			set_variable = {
+				which = civil_war_states_3
+				value = 0
+			}
+			#THIS = { state_scope = { add_core = D53 } }
+			THIS = { 
+				clr_country_flag = civil_war_1
+				clr_country_flag = civil_war_2
+				clr_country_flag = civil_war_4
+				clr_country_flag = civil_war_5
+				clr_country_flag = civil_war_6
+				clr_country_flag = civil_war_7
+				clr_country_flag = civil_war_8
+				clr_country_flag = civil_war_9
+				clr_country_flag = civil_war_10
+			}
+			any_country = { 
+				clr_country_flag = civil_war_vassal_3
+			}
+			any_country = { 
+				limit = { vassal_of = THIS }
+				set_country_flag = civil_war_vassal_3
+			}
+		}
+		else_if = {
+			limit = { NOT = { has_global_flag = civil_war_global_4 } }
+			#D54 = { all_core = { remove_core = D54 } }
+			set_country_flag = civil_war_4
+			set_global_flag = civil_war_global_4
+			set_variable = {
+				which = civil_war_states_4
+				value = 0
+			}
+			#THIS = { state_scope = { add_core = D54 } }	
+			THIS = { 
+				clr_country_flag = civil_war_1
+				clr_country_flag = civil_war_2
+				clr_country_flag = civil_war_3
+				clr_country_flag = civil_war_5
+				clr_country_flag = civil_war_6
+				clr_country_flag = civil_war_7
+				clr_country_flag = civil_war_8
+				clr_country_flag = civil_war_9
+				clr_country_flag = civil_war_10
+			}
+			any_country = { 
+				clr_country_flag = civil_war_vassal_4
+			}
+			any_country = { 
+				limit = { vassal_of = THIS }
+				set_country_flag = civil_war_vassal_4
+			}
+		}
+		else_if = {
+			limit = { NOT = { has_global_flag = civil_war_global_5 } }
+			#D55 = { all_core = { remove_core = D55 } }
+			set_country_flag = civil_war_5
+			set_global_flag = civil_war_global_5
+			set_variable = {
+				which = civil_war_states_5
+				value = 0
+			}
+			#THIS = { state_scope = { add_core = D55 } }
+			THIS = { 
+				clr_country_flag = civil_war_1
+				clr_country_flag = civil_war_2
+				clr_country_flag = civil_war_3
+				clr_country_flag = civil_war_4
+				clr_country_flag = civil_war_6
+				clr_country_flag = civil_war_7
+				clr_country_flag = civil_war_8
+				clr_country_flag = civil_war_9
+				clr_country_flag = civil_war_10
+			}
+			any_country = { 
+				clr_country_flag = civil_war_vassal_5
+			}
+			any_country = { 
+				limit = { vassal_of = THIS }
+				set_country_flag = civil_war_vassal_5
+			}
+		}
+		else_if = {
+			limit = { NOT = { has_global_flag = civil_war_global_6 } }
+			#D56 = { all_core = { remove_core = D56 } }
+			set_country_flag = civil_war_6
+			set_global_flag = civil_war_global_6
+			set_variable = {
+				which = civil_war_states_6
+				value = 0
+			}
+			#THIS = { state_scope = { add_core = D56 } }	
+			THIS = { 
+				clr_country_flag = civil_war_1
+				clr_country_flag = civil_war_2
+				clr_country_flag = civil_war_3
+				clr_country_flag = civil_war_4
+				clr_country_flag = civil_war_5
+				clr_country_flag = civil_war_7
+				clr_country_flag = civil_war_8
+				clr_country_flag = civil_war_9
+				clr_country_flag = civil_war_10
+			}
+			any_country = { 
+				clr_country_flag = civil_war_vassal_6
+			}
+			any_country = { 
+				limit = { vassal_of = THIS }
+				set_country_flag = civil_war_vassal_6
+			}
+		}
+		else_if = {
+			limit = { NOT = { has_global_flag = civil_war_global_7 } }
+			#D57 = { all_core = { remove_core = D57 } }
+			set_country_flag = civil_war_7
+			set_global_flag = civil_war_global_7
+			set_variable = {
+				which = civil_war_states_7
+				value = 0
+			}
+			#THIS = { state_scope = { add_core = D57 } }
+			THIS = { 
+				clr_country_flag = civil_war_1
+				clr_country_flag = civil_war_2
+				clr_country_flag = civil_war_3
+				clr_country_flag = civil_war_4
+				clr_country_flag = civil_war_5
+				clr_country_flag = civil_war_6
+				clr_country_flag = civil_war_8
+				clr_country_flag = civil_war_9
+				clr_country_flag = civil_war_10
+			}
+			any_country = { 
+				clr_country_flag = civil_war_vassal_7
+			}
+			any_country = { 
+				limit = { vassal_of = THIS }
+				set_country_flag = civil_war_vassal_7
+			}
+		}
+		else_if = {
+			limit = { NOT = { has_global_flag = civil_war_global_8 } }
+			#D58 = { all_core = { remove_core = D58 } }
+			set_country_flag = civil_war_8
+			set_global_flag = civil_war_global_8
+			set_variable = {
+				which = civil_war_states_8
+				value = 0
+			}
+			#THIS = { state_scope = { add_core = D58 } }
+			THIS = { 
+				clr_country_flag = civil_war_1
+				clr_country_flag = civil_war_2
+				clr_country_flag = civil_war_3
+				clr_country_flag = civil_war_4
+				clr_country_flag = civil_war_5
+				clr_country_flag = civil_war_6
+				clr_country_flag = civil_war_7
+				clr_country_flag = civil_war_9
+				clr_country_flag = civil_war_10
+			}
+			any_country = { 
+				clr_country_flag = civil_war_vassal_8
+			}
+			any_country = { 
+				limit = { vassal_of = THIS }
+				set_country_flag = civil_war_vassal_8
+			}
+		}
+		else_if = {
+			limit = { NOT = { has_global_flag = civil_war_global_9 } }
+			#D59 = { all_core = { remove_core = D59 } }
+			set_country_flag = civil_war_9
+			set_global_flag = civil_war_global_9
+			set_variable = {
+				which = civil_war_states_9
+				value = 0
+			}
+			#THIS = { state_scope = { add_core = D59 } }
+			THIS = { 
+				clr_country_flag = civil_war_1
+				clr_country_flag = civil_war_2
+				clr_country_flag = civil_war_3
+				clr_country_flag = civil_war_4
+				clr_country_flag = civil_war_5
+				clr_country_flag = civil_war_6
+				clr_country_flag = civil_war_7
+				clr_country_flag = civil_war_8
+				clr_country_flag = civil_war_10
+			}
+			any_country = { 
+				clr_country_flag = civil_war_vassal_9
+			}
+			any_country = { 
+				limit = { vassal_of = THIS }
+				set_country_flag = civil_war_vassal_9
+			}
+		}
+		else_if = {
+			limit = { NOT = { has_global_flag = civil_war_global_10 } }
+			#D60 = { all_core = { remove_core = D60 } }
+			set_country_flag = civil_war_10
+			set_global_flag = civil_war_global_10
+			set_variable = {
+				which = civil_war_states_10
+				value = 0
+			}
+			#THIS = { state_scope = { add_core = D60 } }
+			THIS = { 
+				clr_country_flag = civil_war_1
+				clr_country_flag = civil_war_2
+				clr_country_flag = civil_war_3
+				clr_country_flag = civil_war_4
+				clr_country_flag = civil_war_5
+				clr_country_flag = civil_war_6
+				clr_country_flag = civil_war_7
+				clr_country_flag = civil_war_8
+				clr_country_flag = civil_war_9
+			}
+			any_country = { 
+				clr_country_flag = civil_war_vassal_10
+			}
+			any_country = { 
+				limit = { vassal_of = THIS }
+				set_country_flag = civil_war_vassal_10
+			}
+				
+		
+		}
+
+		###############################################
+		#DETERMINE WHAT SORT OF REVOLT IT IS - TODO make province specific
+		###############################################
+		
+		random_owned = {
+			limit = {	
+				test = civil_war_eligible			
+				is_core = THIS
+				is_primary_culture = yes	
+			}
+			
+			set_province_flag = revolt_origin
+
+				#Communism - 
+				if = { 
+					limit = {
+						is_ideology_enabled = communist
+						owner = { 
+							NOT = {
+								government = proletarian_dictatorship 
+								ruling_party_ideology = communist
+							}
+							trade_unions = no_trade_unions
+							OR = { 
+								social_reform_want = 0.25
+								AND = {
+									communist = 0.05
+									social_reform_want = 0.1
+								}
+							}
+						}
+						OR = {
+							has_province_modifier = militant_trade_union
+							has_province_modifier = province_strike
+							has_province_modifier = may_day
+							communist = 0.2
+							unemployment = 0.5
+						}
+					}
+					owner = { set_country_flag = civil_war_communist }
+				}
+				#fascist - 
+				else_if = { 
+					limit = {
+						is_ideology_enabled = fascist
+						owner = {
+							NOT = {
+								government = fascist_dictatorship 
+								ruling_party_ideology = fascist
+								plurality = 35
+							}
+							OR = {
+								has_unclaimed_cores = yes
+								revanchism = 0.2
+								fascist = 0.1
+								has_recently_lost_war = yes
+							}
+							fascist = 0.05
+						}
+						OR = {
+							has_province_modifier = fascist_welfare
+							has_province_modifier = beer_hall_putsch
+							has_province_modifier = black_shirts
+							has_province_modifier = free_corps
+							fascist = 0.1
+							
+						}
+						
+					}
+					owner = { set_country_flag = civil_war_fascist }
+				}	
+				#Socialist - 
+				if = { 
+					limit = {
+						is_ideology_enabled = socialist
+						owner = { 
+							NOT = {
+								government = proletarian_dictatorship 
+								ruling_party_ideology = communist
+								ruling_party_ideology = socialist
+							}
+							OR = { 
+								social_reform_want = 0.25
+								AND = {
+									socialist = 0.1
+									social_reform_want = 0.1
+								}
+							}
+						}
+						OR = {
+							has_province_modifier = militant_trade_union
+							has_province_modifier = province_strike
+							has_province_modifier = may_day
+							socialist = 0.2
+							unemployment = 0.5
+						}
+					}
+					owner = { set_country_flag = civil_war_socialist }
+				}
+				
+				#Anarcho-liberalism - if there's a strong AL movement for whatever weird reason 
+				else_if = { 	
+					limit = {
+						is_ideology_enabled = anarcho_liberal
+						owner = {
+							NOT = {
+								government = bourgeois_dictatorship 
+								ruling_party_ideology = anarcho_liberal
+							}
+							anarcho_liberal = 0.2
+						}
+						anarcho_liberal = 0.2
+					}
+					owner = { set_country_flag = civil_war_anarcho_liberal }
+				}
+				
+				#Liberal. Repressive government, want political reforms
+				else_if = { 
+					limit = {
+						owner = { 
+							OR = { 
+								government = absolute_monarchy
+								government = prussian_constitutionalism
+								government = presidential_dictatorship
+								government = bourgeois_dictatorship
+								government = fascist_dictatorship
+								government = proletarian_dictatorship
+								#government = theocracy
+								AND = {
+									OR = { 
+										government = hms_government
+										government = democracy
+									}
+									OR = {
+										ruling_party_ideology = reactionary
+										ruling_party_ideology = fascist
+									}
+									political_reform_want = 0.1
+								}
+							}
+						}
+						OR = {
+							has_province_modifier = liberal_agitation
+							has_province_modifier = liberal_reaction
+							liberal = 0.2
+							owner = { political_reform_want = 0.05 }
+							owner = { government = absolute_monarchy }
+							owner = { has_country_modifier = springtime_of_nations }
+							owner = { has_country_modifier = global_liberal_agitation }
+							
+						}
+					}
+					owner = { set_country_flag = civil_war_liberal }
+				}
+				#Monarchist. liberal monarchy or former monarchy
+				else_if = { 
+					limit = {
+						owner = { 
+							NOT = { government = absolute_monarchy }
+							OR = { 
+								government = prussian_constitutionalism
+								government = hms_government
+								OR = {
+									tag = FRA
+									tag = ENG
+									tag = RUS
+									tag = GER
+									tag = SPA
+								}
+							}
+							reactionary = 0.1
+						}
+						OR = {
+							has_province_modifier = anti_jacobin_tract
+							has_province_modifier = conservative_reaction
+							reactionary = 0.3
+							owner = { tag = FRA }
+						}
+					}
+					owner = { set_country_flag = civil_war_monarchy }
+				}
+
+				
+				else = { #Last resort - military coup trumps all
+					owner = { set_country_flag = civil_war_military }
+				}
+		}
+	
+		###############################################
+		#DETERMINE REVOLT RATIO
+		###############################################
+		
+		set_variable = { which = metropole_states value = 0 }
+		
+		any_owned = {
+			limit = { is_overseas = no is_state_capital = yes } 
+			owner = { increment_variable = metropole_states }
+		}
+		
+
+	}
+	
+	option = {
+		name = "EVTOPTA_1776001"
+		prestige_factor = -0.02
+
+		any_pop = { militancy = -5 }
+		set_country_flag = civil_war_has_started
+		
+		###############################################
+		#SECEDE PROVINCES AND BEGIN WAR
+		###############################################
+		
+		#A note - these big long if - secede strings are necessary because this is only being done in a single event. if you did it in even a two-event chain, this could be much simpler and also you could ensure all the rebel states were contiguous. But I don't care and I want it simple for now.
+		
+		#Slot 1 - D51
+		if = {
+			limit = {
+				has_country_flag = civil_war_1
+			}
+			random_owned = { limit = { has_province_flag = revolt_origin } state_scope = { secede_province = D51 } }
+			if = { limit = { check_variable = { which = metropole_states value = 4 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D51 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 6 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D51 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 8 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D51 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 10 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D51 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 12 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D51 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 14 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D51 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 16 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D51 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 18 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D51 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 20 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D51 } }
+			}					
+			if = { limit = { check_variable = { which = metropole_states value = 22 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D51 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 24 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D51 } }
+			}				
+			
+			war = {
+					target = D51
+					attacker_goal = { casus_belli = civil_war }
+					defender_goal = { casus_belli = make_puppet }
+			}	
+		}
+		#Slot 2 - D52
+		else_if = { 
+			limit = {
+				has_country_flag = civil_war_2
+			}
+			random_owned = { limit = { has_province_flag = revolt_origin } state_scope = { secede_province = D52 } }
+			if = { limit = { check_variable = { which = metropole_states value = 4 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D52 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 6 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D52 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 8 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D52 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 10 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D52 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 12 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D52 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 14 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D52 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 16 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D52 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 18 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D52 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 20 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D52 } }
+			}			
+			if = { limit = { check_variable = { which = metropole_states value = 22 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D52 } }
+			}			
+			if = { limit = { check_variable = { which = metropole_states value = 24 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D52 } }
+			}	
+			war = {
+					target = D52
+					attacker_goal = { casus_belli = civil_war }
+					defender_goal = { casus_belli = make_puppet }
+			}	
+		}
+		#Slot 3 - D53
+		else_if = { 
+			limit = {
+				has_country_flag = civil_war_3
+			}
+			random_owned = { limit = { has_province_flag = revolt_origin } state_scope = { secede_province = D53 } }
+			if = { limit = { check_variable = { which = metropole_states value = 4 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D53 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 6 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D53 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 8 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D53 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 10 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D53 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 12 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D53 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 14 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D53 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 16 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D53 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 18 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D53 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 20 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D53 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 22 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D53 } }
+			}			
+			if = { limit = { check_variable = { which = metropole_states value = 24 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D53 } }
+			}
+			war = {
+					target = D53
+					attacker_goal = { casus_belli = civil_war }
+					defender_goal = { casus_belli = make_puppet }
+			}	
+		}
+		#Slot 4 - D54
+		else_if = { 
+			limit = {
+				has_country_flag = civil_war_4
+			}
+			random_owned = { limit = { has_province_flag = revolt_origin } state_scope = { secede_province = D54 } }
+			if = { limit = { check_variable = { which = metropole_states value = 4 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D54 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 6 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D54 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 8 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D54 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 10 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D54 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 12 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D54 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 14 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D54 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 16 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D54 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 18 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D54 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 20 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D54 } }
+			}			
+			if = { limit = { check_variable = { which = metropole_states value = 22 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D54 } }
+			}			
+			if = { limit = { check_variable = { which = metropole_states value = 24 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D54 } }
+			}	
+			war = {
+					target = D54
+					attacker_goal = { casus_belli = civil_war }
+					defender_goal = { casus_belli = make_puppet }
+			}	
+		}
+		#Slot 5 - D55
+		else_if = { 
+			limit = {
+				has_country_flag = civil_war_5
+			}
+			random_owned = { limit = { has_province_flag = revolt_origin } state_scope = { secede_province = D55 } }
+			if = { limit = { check_variable = { which = metropole_states value = 4 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D55 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 6 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D55 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 8 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D55 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 10 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D55 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 12 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D55 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 14 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D55 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 16 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D55 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 18 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D55 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 20 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D55 } }
+			}			
+			if = { limit = { check_variable = { which = metropole_states value = 22 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D55 } }
+			}			
+			if = { limit = { check_variable = { which = metropole_states value = 24 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D55 } }
+			}	
+			war = {
+					target = D55
+					attacker_goal = { casus_belli = civil_war }
+					defender_goal = { casus_belli = make_puppet }
+			}	
+		}
+		#Slot 6 - D56
+		else_if = { 
+			limit = {
+				has_country_flag = civil_war_6
+			}
+			random_owned = { limit = { has_province_flag = revolt_origin } state_scope = { secede_province = D56 } }
+			if = { limit = { check_variable = { which = metropole_states value = 4 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D56 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 6 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D56 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 8 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D56 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 10 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D56 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 12 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D56 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 14 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D56 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 16 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D56 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 18 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D56 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 20 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D56 } }
+			}			
+			if = { limit = { check_variable = { which = metropole_states value = 22 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D56 } }
+			}			
+			if = { limit = { check_variable = { which = metropole_states value = 24 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D56 } }
+			}	
+			war = {
+					target = D56
+					attacker_goal = { casus_belli = civil_war }
+					defender_goal = { casus_belli = make_puppet }
+			}	
+		}
+		#Slot 7 - D57
+		else_if = { 
+			limit = {
+				has_country_flag = civil_war_7
+			}
+			random_owned = { limit = { has_province_flag = revolt_origin } state_scope = { secede_province = D57 } }
+			if = { limit = { check_variable = { which = metropole_states value = 4 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D57 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 6 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D57 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 8 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D57 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 10 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D57 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 12 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D57 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 14 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D57 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 16 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D57 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 18 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D57 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 20 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D57 } }
+			}			
+			if = { limit = { check_variable = { which = metropole_states value = 22 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D57 } }
+			}			
+			if = { limit = { check_variable = { which = metropole_states value = 24 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D57 } }
+			}	
+			war = {
+					target = D57
+					attacker_goal = { casus_belli = civil_war }
+					defender_goal = { casus_belli = make_puppet }
+			}	
+		}
+		#Slot 8 - D58
+		else_if = { 
+			limit = {
+				has_country_flag = civil_war_8
+			}
+			random_owned = { limit = { has_province_flag = revolt_origin } state_scope = { secede_province = D58 } }
+			if = { limit = { check_variable = { which = metropole_states value = 4 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D58 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 6 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D58 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 8 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D58 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 10 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D58 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 12 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D58 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 14 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D58 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 16 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D58 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 18 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D58 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 20 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D58 } }
+			}			
+			if = { limit = { check_variable = { which = metropole_states value = 22 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D58 } }
+			}			
+			if = { limit = { check_variable = { which = metropole_states value = 24 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D58 } }
+			}	
+			war = {
+					target = D58
+					attacker_goal = { casus_belli = civil_war }
+					defender_goal = { casus_belli = make_puppet }
+			}	
+		}
+		#Slot 9 - D59
+		else_if = { 
+			limit = {
+				has_country_flag = civil_war_3
+			}
+			random_owned = { limit = { has_province_flag = revolt_origin } state_scope = { secede_province = D59 } }
+			if = { limit = { check_variable = { which = metropole_states value = 4 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D59 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 6 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D59 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 8 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D59 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 10 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D59 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 12 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D59 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 14 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D59 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 16 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D59 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 18 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D59 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 20 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D59 } }
+			}			
+			if = { limit = { check_variable = { which = metropole_states value = 22 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D59 } }
+			}			
+			if = { limit = { check_variable = { which = metropole_states value = 24 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D59 } }
+			}	
+			war = {
+					target = D53
+					attacker_goal = { casus_belli = civil_war }
+					defender_goal = { casus_belli = make_puppet }
+			}	
+		}
+		#Slot 10 - D60
+		else_if = {
+			limit = {
+				has_country_flag = civil_war_3
+			}
+			random_owned = { limit = { has_province_flag = revolt_origin } state_scope = { secede_province = D60 } }
+			if = { limit = { check_variable = { which = metropole_states value = 4 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D60 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 6 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D60 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 8 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D60 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 10 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D60 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 12 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D60 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 14 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D60 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 16 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D60 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 18 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D60 } }
+			}				
+			if = { limit = { check_variable = { which = metropole_states value = 20 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D60 } }
+			}			
+			if = { limit = { check_variable = { which = metropole_states value = 22 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D60 } }
+			}			
+			if = { limit = { check_variable = { which = metropole_states value = 24 } }
+				random_owned = { limit = { test = can_join_civil_war } state_scope = { secede_province = D60 } }
+			}	
+			war = {
+					target = D60
+					attacker_goal = { casus_belli = civil_war }
+					defender_goal = { casus_belli = make_puppet }
+			}	
+		}
+
+		
+		###############################################
+		#ASSIGN REVOLT TAG IDEOLOGY AND GIVE MIL BUFFS
+		###############################################
+		
+		random_country = {
+		
+			limit  = {
+				war_with = THIS
+				OR = { 
+					tag = D51 
+					tag = D52
+					tag = D53
+					tag = D54
+					tag = D55
+					tag = D56
+					tag = D57
+					tag = D58
+					tag = D59
+					tag = D60
+				}
+			}
+			
+			any_pop = { militancy = -9 }
+						
+			primary_culture = THIS
+			#religion = THIS
+			
+			#political_reform = mandatory_service	
+            leadership = 80
+            treasury = 100000
+            small_arms = 300
+            ammunition = 200
+            canned_food = 200
+            artillery = 100
+            regular_clothes = 100
+			random_pop = {
+				limit = {
+					pop_type = farmers
+				}
+				pop_type = soldiers
+			}
+			#add_country_modifier = { name = no_more_war duration = 150 }
+			
+			####################
+			#LIBERAL REVOLT
+			####################
+			if = {
+				limit = { THIS = { has_country_flag = civil_war_liberal } }
+					government = democracy
+					ruling_party_ideology = liberal
+					political_reform = no_slavery
+					political_reform = universal_weighted_voting
+					political_reform = population_equal_weight
+					political_reform = gerrymandering
+					political_reform = harassment
+					political_reform = censored_press
+					political_reform = yes_meeting
+			}	
+
+			####################
+			#SOCIALIST OR COMMUNIST REVOLT (just for the socialist rather than republic flag)
+			####################
+			else_if = {
+				limit = { THIS = { OR = { has_country_flag = civil_war_socialist has_country_flag = civil_war_communist } } }
+					government = proletarian_dictatorship
+					ruling_party_ideology = communist
+					political_reform = none_voting
+					political_reform = party_appointed
+					political_reform = no_meeting
+					political_reform = state_press
+					political_reform = state_controlled
+					political_reform = underground_parties
+					#social_reform = good_minimum_wage
+					#social_reform = eight_hours
+					#social_reform = good_subsidies
+					#social_reform = good_pensions
+					#social_reform = good_health_care
+					#social_reform = good_schools
+					nationalize = yes
+			}	
+			
+			####################
+			#FASCIST REVOLT
+			####################
+			else_if = {
+				limit = { THIS = { has_country_flag = civil_war_fascist } }
+					government = fascist_dictatorship
+					ruling_party_ideology = fascist
+					political_reform = none_voting
+					political_reform = party_appointed
+					political_reform = no_meeting
+					political_reform = state_press
+					political_reform = underground_parties
+					#political_reform = mandatory_service
+			}	
+			
+			####################
+			#MONARCHIST REVOLT
+			####################
+			else_if = {
+				limit = { THIS = { has_country_flag = civil_war_monarchy } }
+					government = absolute_monarchy
+					ruling_party_ideology = reactionary
+					political_reform = none_voting
+					political_reform = party_appointed
+					political_reform = no_meeting
+					political_reform = state_press
+					political_reform = no_trade_unions
+					political_reform = underground_parties
+			}
+			
+			####################
+			#REACTIONARY/MILITARY REVOLT
+			####################
+			else_if = {
+				limit = { THIS = { has_country_flag = civil_war_military } }
+					government = presidential_dictatorship
+					ruling_party_ideology = reactionary
+					political_reform = none_voting
+					political_reform = party_appointed
+					political_reform = no_meeting
+					political_reform = state_press
+					political_reform = no_trade_unions
+					political_reform = underground_parties
+			}
+			
+			####################
+			#RADICAL REVOLT
+			####################
+			else_if = {
+				limit = { THIS = { has_country_flag = civil_war_anarcho_liberal } }
+					government = bourgeois_dictatorship
+					ruling_party_ideology = anarcho_liberal
+					political_reform = none_voting
+					political_reform = party_appointed
+					political_reform = no_meeting
+					political_reform = state_press
+					political_reform = no_trade_unions
+					political_reform = underground_parties
+			}
+		}
+	}
+}
+
+#THE REVOLUTION SUCCEEDS
+
+country_event = { 
+
+	id = 1776004
+	title = "EVTNAME_1776004"
+	desc = "EVTDESC_1776004"
+	picture = "Celebration"
+	
+	trigger = {
+		has_country_flag = civil_war_has_started
+		is_vassal  = yes
+		OR = {
+			vassal_of = D51
+			vassal_of = D52
+			vassal_of = D53
+			vassal_of = D54
+			vassal_of = D55
+			vassal_of = D56
+			vassal_of = D57
+			vassal_of = D58
+			vassal_of = D59
+			vassal_of = D60
+		}
+		
+	}
+	
+	mean_time_to_happen = { 
+		days = 1
+	}
+
+	immediate = {
+	
+		if = { 
+			limit = { has_country_flag = civil_war_1 }
+			clr_global_flag = civil_war_global_1
+			D51 = { all_core = { remove_core = D51 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_2 }
+			clr_global_flag = civil_war_global_2
+			D52 = { all_core = { remove_core = D52 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_3 }
+			clr_global_flag = civil_war_global_3
+			D53 = { all_core = { remove_core = D53 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_4 }
+			clr_global_flag = civil_war_global_4
+			D54 = { all_core = { remove_core = D54 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_5 }
+			clr_global_flag = civil_war_global_5
+			D55 = { all_core = { remove_core = D55 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_6 }
+			clr_global_flag = civil_war_global_6
+			D56 = { all_core = { remove_core = D56 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_7 }
+			clr_global_flag = civil_war_global_7
+			D57 = { all_core = { remove_core = D57 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_8 }
+			clr_global_flag = civil_war_global_8
+			D58 = { all_core = { remove_core = D58 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_9 }
+			clr_global_flag = civil_war_global_9
+			D59 = { all_core = { remove_core = D59 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_10 }
+			clr_global_flag = civil_war_global_10
+			D60 = { all_core = { remove_core = D60 } }
+		}
+		
+	
+		####################
+		#LIBERAL REVOLT
+		####################
+	
+			if = { limit = { has_country_flag = civil_war_liberal }
+				THIS = {
+					government = democracy 
+					ruling_party_ideology = liberal
+					political_reform = no_slavery
+					political_reform = universal_weighted_voting
+					political_reform = population_equal_weight
+					political_reform = gerrymandering
+					political_reform = harassment
+					political_reform = censored_press
+					political_reform = yes_meeting
+					election = yes
+				} 
+			}
+		####################
+		#SOCIALIST REVOLT
+		####################	
+			else_if = { limit = { has_country_flag = civil_war_socialist  }
+				THIS = {
+					government = democracy 
+					ruling_party_ideology = socialist
+					political_reform = universal_voting
+					political_reform = party_appointed
+					political_reform = yes_meeting
+					political_reform = free_press
+					political_reform = all_trade_unions
+					political_reform = no_slavery
+					political_reform = proportional_representation
+					#political_reform = all_voting_pops
+					#social_reform = good_minimum_wage
+					#social_reform = eight_hours
+					#social_reform = good_subsidies
+					#social_reform = good_pensions
+					#social_reform = good_health_care
+					#social_reform = good_schools
+					nationalize = yes
+				} 
+			}	
+		####################
+		#COMMUNIST REVOLT
+		####################
+	
+			else_if = { limit = { has_country_flag = civil_war_communist  }
+				THIS = {
+					government = proletarian_dictatorship
+					ruling_party_ideology = communist
+					political_reform = none_voting
+					political_reform = party_appointed
+					political_reform = no_meeting
+					political_reform = state_press
+					political_reform = state_controlled
+					political_reform = underground_parties
+					#social_reform = good_minimum_wage
+					#social_reform = eight_hours
+					#social_reform = good_subsidies
+					#social_reform = good_pensions
+					#social_reform = good_health_care
+					#social_reform = good_schools
+					nationalize = yes
+				} 
+			}
+
+		####################
+		#FASCIST REVOLT
+		####################
+	
+			else_if = { limit = { has_country_flag = civil_war_fascist  }
+				THIS = {
+					government = fascist_dictatorship
+					ruling_party_ideology = fascist
+					political_reform = none_voting
+					political_reform = party_appointed
+					political_reform = no_meeting
+					political_reform = state_press
+					political_reform = underground_parties
+					#political_reform = mandatory_service
+
+				} 
+			}
+		####################
+		#MONARCHIST REVOLT
+		####################
+	
+			else_if = { limit = { has_country_flag = civil_war_monarchy  }
+				THIS = {
+					government = absolute_monarchy
+					ruling_party_ideology = reactionary
+					political_reform = none_voting
+					political_reform = party_appointed
+					political_reform = no_meeting
+					political_reform = state_press
+					political_reform = no_trade_unions
+					political_reform = underground_parties
+				} 
+			}
+		####################
+		#REACTIONARY/MILITARY REVOLT
+		####################
+	
+			else_if = { limit = { has_country_flag = civil_war_military  }
+				THIS = {
+					if = { limit = { 
+						OR = { 
+							government = absolute_monarchy 
+							government = prussian_constitutionalism 
+							government = hms_government 
+						}}
+						government = absolute_monarchy
+					}
+					else = { government = presidential_dictatorship }
+					ruling_party_ideology = reactionary
+					political_reform = none_voting
+					political_reform = party_appointed
+					political_reform = no_meeting
+					political_reform = state_press
+					political_reform = no_trade_unions
+					political_reform = underground_parties
+				} 
+			}
+	}
+
+	option = {
+		name = "EVTOPTA_1776004"
+		
+		militancy = -5
+        plurality = -25
+		
+		clr_country_flag = civil_war_has_started
+		
+		if = { limit = { has_country_flag = civil_war_1 }
+			any_country = {
+				limit = { has_country_flag = civil_war_vassal_1 }
+				country_event = { id = 1776007 days = 5 }
+			}
+		}
+		else_if = { limit = { has_country_flag = civil_war_2 }
+			any_country = {
+				limit = { has_country_flag = civil_war_vassal_2 }
+				country_event = { id = 1776007 days = 5 }
+			}
+		}
+		else_if = { limit = { has_country_flag = civil_war_3 }
+			any_country = {
+				limit = { has_country_flag = civil_war_vassal_3 }
+				country_event = { id = 1776007 days = 5 }
+			}
+		}
+		else_if = { limit = { has_country_flag = civil_war_4 }
+			any_country = {
+				limit = { has_country_flag = civil_war_vassal_4 }
+				country_event = { id = 1776007 days = 5 }
+			}
+		}
+		else_if = { limit = { has_country_flag = civil_war_5 }
+			any_country = {
+				limit = { has_country_flag = civil_war_vassal_5 }
+				country_event = { id = 1776007 days = 5 }
+			}
+		}
+		else_if = { limit = { has_country_flag = civil_war_6 }
+			any_country = {
+				limit = { has_country_flag = civil_war_vassal_6 }
+				country_event = { id = 1776007 days = 5 }
+			}
+		}
+		else_if = { limit = { has_country_flag = civil_war_7 }
+			any_country = {
+				limit = { has_country_flag = civil_war_vassal_7 }
+				country_event = { id = 1776007 days = 5 }
+			}
+		}
+		else_if = { limit = { has_country_flag = civil_war_8 }
+			any_country = {
+				limit = { has_country_flag = civil_war_vassal_8 }
+				country_event = { id = 1776007 days = 5 }
+			}
+		}
+		else_if = { limit = { has_country_flag = civil_war_9 }
+			any_country = {
+				limit = { has_country_flag = civil_war_vassal_9 }
+				country_event = { id = 1776007 days = 5 }
+			}
+		}
+		else_if = { limit = { has_country_flag = civil_war_10 }
+			any_country = {
+				limit = { has_country_flag = civil_war_vassal_10 }
+				country_event = { id = 1776007 days = 5 }
+			}
+		}
+			
+		clr_country_flag = civil_war_1
+		clr_country_flag = civil_war_2
+		clr_country_flag = civil_war_3
+		clr_country_flag = civil_war_4
+		clr_country_flag = civil_war_5
+		clr_country_flag = civil_war_6
+		clr_country_flag = civil_war_7
+		clr_country_flag = civil_war_8
+		clr_country_flag = civil_war_9
+		clr_country_flag = civil_war_10
+		
+		overlord = {
+			release_vassal = THIS 
+			annex_to = THIS
+		}
+		
+		#add_country_modifier = {
+        #    name = national_confusion
+        #    duration = 365
+        #}
+		#add_country_modifier = {
+        #    name = no_more_war
+        #    duration = 365
+        #}
+		
+		if = { limit = { has_country_flag = civil_war_liberal }
+			any_pop = { 
+				ideology = {
+					value = liberal
+					factor = 0.10
+				}
+			}
+		}
+		else_if = { limit = { has_country_flag = civil_war_socialist }
+			any_pop = { 
+				ideology = {
+					value = socialist
+					factor = 0.10
+				}
+			}
+		}
+		else_if = { limit = { has_country_flag = civil_war_communist }
+			any_pop = { 
+				ideology = {
+					value = communist
+					factor = 0.10
+				}
+			}
+		}
+		else_if = { limit = { has_country_flag = civil_war_fascist }
+			any_pop = { 
+				ideology = {
+					value = fascist
+					factor = 0.10
+				}
+			}
+		}
+		else_if = { limit = { has_country_flag = civil_war_monarchy }
+			any_pop = { 
+				ideology = {
+					value = reactionary
+					factor = 0.10
+				}
+			}
+		}
+		else_if = { limit = { has_country_flag = civil_war_military }
+			any_pop = { 
+				ideology = {
+					value = reactionary
+					factor = 0.10
+				}
+			}
+		}
+		else_if = { limit = { has_country_flag = civil_war_anarcho_liberal }
+			any_pop = { 
+				ideology = {
+					value = anarcho_liberal
+					factor = 0.10
+				}
+			}
+		}
+		
+		clr_country_flag = civil_war_liberal
+		clr_country_flag = civil_war_socialist
+		clr_country_flag = civil_war_communist
+		clr_country_flag = civil_war_fascist
+		clr_country_flag = civil_war_monarchy
+		clr_country_flag = civil_war_military
+		clr_country_flag = civil_war_anarcho_liberal	
+		
+	}
+}
+
+#THE REVOLUTION IS DEFEATED
+
+country_event = { 
+
+	id = 1776005
+	title = "EVTNAME_1776005"
+	desc = "EVTDESC_1776005"
+	picture = "Parade"
+	
+	trigger = {
+		has_country_flag = civil_war_has_started
+		OR = {
+			AND = {
+				has_country_flag = civil_war_1
+				D51 = { exists = no }
+			}
+			AND = {
+				has_country_flag = civil_war_2
+				D52 = { exists = no }
+			}
+			AND = {
+				has_country_flag = civil_war_3
+				D53 = { exists = no }
+			}
+			AND = {
+				has_country_flag = civil_war_4
+				D54 = { exists = no }
+			}
+			AND = {
+				has_country_flag = civil_war_5
+				D55 = { exists = no }
+			}
+			AND = {
+				has_country_flag = civil_war_6
+				D56 = { exists = no }
+			}
+			AND = {
+				has_country_flag = civil_war_7
+				D57 = { exists = no }
+			}
+			AND = {
+				has_country_flag = civil_war_8
+				D58 = { exists = no }
+			}
+			AND = {
+				has_country_flag = civil_war_9
+				D59 = { exists = no }
+			}
+			AND = {
+				has_country_flag = civil_war_10
+				D60 = { exists = no }
+			}
+		}
+		
+	}
+	
+	mean_time_to_happen = { 
+		days = 15
+	}
+
+	immediate = {
+	
+		if = { 
+			limit = { has_country_flag = civil_war_1 }
+			clr_global_flag = civil_war_global_1
+			D51 = { all_core = { remove_core = D51 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_2 }
+			clr_global_flag = civil_war_global_2
+			D52 = { all_core = { remove_core = D52 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_3 }
+			clr_global_flag = civil_war_global_3
+			D53 = { all_core = { remove_core = D53 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_4 }
+			clr_global_flag = civil_war_global_4
+			D54 = { all_core = { remove_core = D54 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_5 }
+			clr_global_flag = civil_war_global_5
+			D55 = { all_core = { remove_core = D55 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_6 }
+			clr_global_flag = civil_war_global_6
+			D56 = { all_core = { remove_core = D56 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_7 }
+			clr_global_flag = civil_war_global_7
+			D57 = { all_core = { remove_core = D57 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_8 }
+			clr_global_flag = civil_war_global_8
+			D58 = { all_core = { remove_core = D58 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_9 }
+			clr_global_flag = civil_war_global_9
+			D59 = { all_core = { remove_core = D59 } }
+		}
+		else_if = { 
+			limit = { has_country_flag = civil_war_10 }
+			clr_global_flag = civil_war_global_10
+			D60 = { all_core = { remove_core = D60 } }
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTA_1776005"
+			clr_country_flag = civil_war_has_started
+			
+			clr_country_flag = civil_war_1
+			clr_country_flag = civil_war_2
+			clr_country_flag = civil_war_3
+			clr_country_flag = civil_war_4
+			clr_country_flag = civil_war_5
+			clr_country_flag = civil_war_6
+			clr_country_flag = civil_war_7
+			clr_country_flag = civil_war_8
+			clr_country_flag = civil_war_9
+			clr_country_flag = civil_war_10
+			
+			clr_country_flag = civil_war_liberal
+			clr_country_flag = civil_war_socialist
+			clr_country_flag = civil_war_communist
+			clr_country_flag = civil_war_fascist
+			clr_country_flag = civil_war_monarchy
+			clr_country_flag = civil_war_military
+			clr_country_flag = civil_war_anarcho_liberal	
+		
+		#add_country_modifier = {
+        #    name = national_confusion
+        #    duration = 365
+        #}
+		#add_country_modifier = {
+        #    name = no_more_war
+        #    duration = 365
+        #}
+		
+		militancy = -5
+        plurality = -25
+
+	}
+}
+
+# THE WAR CONTINUES - no peace
+
+country_event = { 
+
+	id = 1776006
+	title = "EVTNAME_1776006"
+	desc = "EVTDESC_1776006"
+	picture = "Parade"
+	
+	trigger = {
+		has_country_flag = civil_war_has_started
+		is_vassal  = no
+		OR = {
+			AND = {
+				exists = D51
+				NOT = { war_with = D51 }
+				has_country_flag = civil_war_1
+			}
+			AND = {
+				exists = D52
+				NOT = { war_with = D52 }
+				has_country_flag = civil_war_2
+			}
+			AND = {
+				exists = D53
+				NOT = { war_with = D53 }
+				has_country_flag = civil_war_3
+			}
+			AND = {
+				exists = D54
+				NOT = { war_with = D54 }
+				has_country_flag = civil_war_4
+			}
+			AND = {
+				exists = D55
+				NOT = { war_with = D55 }
+				has_country_flag = civil_war_5
+			}
+			AND = {
+				exists = D56
+				NOT = { war_with = D56 }
+				has_country_flag = civil_war_6
+			}
+			AND = {
+				exists = D57
+				NOT = { war_with = D57 }
+				has_country_flag = civil_war_7
+			}
+			AND = {
+				exists = D58
+				NOT = { war_with = D58 }
+				has_country_flag = civil_war_8
+			}
+			AND = {
+				exists = D59
+				NOT = { war_with = D59 }
+				has_country_flag = civil_war_9
+			}
+			AND = {
+				exists = D60
+				NOT = { war_with = D60 }
+				has_country_flag = civil_war_10
+			}
+		}
+	}
+	
+	mean_time_to_happen = { 
+		days = 5
+	}
+
+	option = {
+		name = "EVTOPTA_1776006"
+		if = {
+			limit = { has_country_flag = civil_war_1 }
+			war = {
+				target = D51
+				attacker_goal = { casus_belli = civil_war }
+				defender_goal = { casus_belli = make_puppet }
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = civil_war_2 }
+			war = {
+				target = D52
+				attacker_goal = { casus_belli = civil_war }
+				defender_goal = { casus_belli = make_puppet }
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = civil_war_3 }
+			war = {
+				target = D53
+				attacker_goal = { casus_belli = civil_war }
+				defender_goal = { casus_belli = make_puppet }
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = civil_war_4 }
+			war = {
+				target = D54
+				attacker_goal = { casus_belli = civil_war }
+				defender_goal = { casus_belli = make_puppet }
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = civil_war_5 }
+			war = {
+				target = D55
+				attacker_goal = { casus_belli = civil_war }
+				defender_goal = { casus_belli = make_puppet }
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = civil_war_6 }
+			war = {
+				target = D56
+				attacker_goal = { casus_belli = civil_war }
+				defender_goal = { casus_belli = make_puppet }
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = civil_war_7 }
+			war = {
+				target = D57
+				attacker_goal = { casus_belli = civil_war }
+				defender_goal = { casus_belli = make_puppet }
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = civil_war_8 }
+			war = {
+				target = D58
+				attacker_goal = { casus_belli = civil_war }
+				defender_goal = { casus_belli = make_puppet }
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = civil_war_9 }
+			war = {
+				target = D59
+				attacker_goal = { casus_belli = civil_war }
+				defender_goal = { casus_belli = make_puppet }
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = civil_war_10 }
+			war = {
+				target = D60
+				attacker_goal = { casus_belli = civil_war }
+				defender_goal = { casus_belli = make_puppet }
+			}
+		}
+	}
+
+}
+
+# VASSALS RESTORED
+
+country_event = { 
+
+	id = 1776007
+	title = "EVTNAME_1776007"
+	desc = "EVTDESC_1776007"
+	picture = "Celebration"
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_1776007"
+		FROM = { create_vassal = THIS }
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		name = "EVTOPTB_1776007"
+		FROM = { 
+			war = {
+				target = THIS
+				attacker_goal = { casus_belli = make_puppet }
+				defender_goal = { casus_belli = status_quo }
+			}	
+		}
+	}
+
+}
+
+#TODO - defection events. but this is low priority
+
+#TODO - equalize the freaking mil tech

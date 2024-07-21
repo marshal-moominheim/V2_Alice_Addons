@@ -1,0 +1,12 @@
+color = { 20 20 20 }
+democracy = { 255 255 71 }
+presidential_dictatorship = { 128 128 128 }
+absolute_monarchy = { 223 175 255 }
+prussian_constitutionalism = { 223 175 255 }
+hms_government = { 223 175 255 }
+fascist_dictatorship = { 193 132 91 }
+proletarian_dictatorship = { 200 4 2 }
+bourgeois_dictatorship = { 234 111 236 }
+
+graphical_culture = Generic
+

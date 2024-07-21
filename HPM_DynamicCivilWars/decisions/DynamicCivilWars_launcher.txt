@@ -1,0 +1,27 @@
+political_decisions = {
+	provoke_civil_war = {
+		picture = the_scotland_yard
+		potential = {
+			ai = no
+			NOT = { 
+				has_country_flag = civil_war_has_started 
+				has_country_flag = civil_war_1
+				has_country_flag = civil_war_2
+				has_country_flag = civil_war_3
+				has_country_flag = civil_war_4
+				has_country_flag = civil_war_5
+				has_country_flag = civil_war_6
+				has_country_flag = civil_war_7
+				has_country_flag = civil_war_8
+				has_country_flag = civil_war_9
+				has_country_flag = civil_war_10	
+			}
+		}
+		allow = {
+			ai = no
+		}
+		effect = {
+			country_event = 1776001
+		}
+	}
+}

@@ -1,0 +1,20 @@
+#capital = 
+primary_culture = british
+religion = catholic
+government = absolute_monarchy
+plurality = 25.1
+nationalvalue = nv_order
+civilized = yes
+
+ruling_party = dominion_conservative
+upper_house = { 
+	fascist = 0
+	liberal = 0
+	conservative = 100
+	reactionary = 0
+	anarcho_liberal = 0
+	socialist = 0
+	communist = 0
+}
+
+
