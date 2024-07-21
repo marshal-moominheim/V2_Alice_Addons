@@ -1,0 +1,15 @@
+
+direct_migration_out = {
+	main_parameter = province
+	
+	country = { has_country_flag = direct_migration }
+	has_province_modifier = direct_migration_out
+}
+
+direct_migration_in = {
+	main_parameter = province
+	
+	country = { has_country_flag = direct_migration }
+	has_province_modifier = direct_migration_in
+}
+

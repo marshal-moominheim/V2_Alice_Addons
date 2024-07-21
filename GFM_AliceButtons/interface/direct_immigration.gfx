@@ -1,0 +1,30 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_direct_migration_out"
+		texturefile = "gfx\\interface\\direct_migration_out.png"
+	}
+	spriteType = {
+		name = "GFX_direct_migration_in"
+		texturefile = "gfx\\interface\\direct_migration_in.png"
+	}
+	spriteType = {
+		name = "GFX_direct_migration_stop"
+		texturefile = "gfx\\interface\\direct_migration_stop.png"
+	}
+	spriteType = {
+		name = "GFX_direct_migration_go"
+		texturefile = "gfx\\interface\\direct_migration_go.png"
+	}
+	spriteType = {
+		name = "GFX_direct_migration_pop_primary"
+		texturefile = "gfx\\interface\\direct_migration_pop_primary.png"
+	}
+	spriteType = {
+		name = "GFX_direct_migration_pop_accept"
+		texturefile = "gfx\\interface\\direct_migration_pop_accept.png"
+	}
+	spriteType = {
+		name = "GFX_direct_migration_pop_nonaccept"
+		texturefile = "gfx\\interface\\direct_migration_pop_nonaccept.png"
+	}
+}

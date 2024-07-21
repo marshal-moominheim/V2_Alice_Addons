@@ -1,0 +1,22 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_give_money_1"
+		texturefile = "gfx\\interface\\give_money_1.png"
+	}
+	spriteType = {
+		name = "GFX_give_money_2"
+		texturefile = "gfx\\interface\\give_money_2.png"
+	}
+	spriteType = {
+		name = "GFX_give_money_3"
+		texturefile = "gfx\\interface\\give_money_3.png"
+	}
+	spriteType = {
+		name = "GFX_give_money_4"
+		texturefile = "gfx\\interface\\give_money_4.png"
+	}
+	spriteType = {
+		name = "GFX_give_money_5"
+		texturefile = "gfx\\interface\\give_money_5.png"
+	}
+}

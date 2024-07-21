@@ -1,0 +1,182 @@
+guiTypes = {
+
+	#MIGRATE OUT
+
+	provinceScriptButtonType = {
+		name = "direct_migration_out"
+		extends = "province_statistics"
+		position = { x= 255 y = 58 }
+		quadTextureSprite = "GFX_direct_migration_out"
+		allow = {
+			owner = { tag = FROM }
+			controller = { tag = FROM }
+			NOT = { has_province_modifier = direct_migration_out }
+		}
+		effect = {
+			state_scope = {
+				remove_province_modifier = direct_migration_in
+				add_province_modifier = { name = direct_migration_out }
+				any_pop = { consciousness = 2 militancy = 1 }
+			}
+		}
+	}
+	
+	#STOP MIGRATION
+	
+	provinceScriptButtonType = {
+		name = "direct_migration_stop"
+		extends = "province_statistics"
+		position = { x= 290 y = 58 }
+		quadTextureSprite = "GFX_direct_migration_stop"
+		allow = {
+			owner = { tag = FROM }
+			OR = {
+				has_province_modifier = direct_migration_out
+				has_province_modifier = direct_migration_in
+			}
+		}
+		effect = {
+			state_scope = {
+				remove_province_modifier = direct_migration_in
+				remove_province_modifier = direct_migration_out
+			}
+		}
+	}
+	
+	#MIGRATE IN	
+	
+	provinceScriptButtonType = {
+		name = "direct_migration_in"
+		extends = "province_statistics"
+		position = { x= 325 y = 58 }
+		quadTextureSprite = "GFX_direct_migration_in"
+		allow = {
+			owner = { tag = FROM }
+			controller = { tag = FROM }
+			NOT = { has_province_modifier = direct_migration_in }
+		}
+		effect = {
+			state_scope = {
+				remove_province_modifier = direct_migration_out
+				add_province_modifier = { name = direct_migration_in }
+			}
+		}
+	}
+	
+	#START MIGRATION (NATIONAL)
+	
+	provinceScriptButtonType = {
+		name = "direct_migration_go"
+		extends = "province_statistics"
+		position = { x= 230 y = 25 }
+		quadTextureSprite = "GFX_direct_migration_go"
+		allow = {
+			owner = { 
+				tag = FROM 
+				NOT = { has_country_flag = direct_migration }
+			}
+		}
+		effect = {
+			owner = {
+				set_country_flag = direct_migration 
+			}
+		}
+	}
+
+	#END MIGRATION (NATIONAL)
+	
+	provinceScriptButtonType = {
+		name = "direct_migration_end"
+		extends = "province_statistics"
+		position = { x= 265 y = 25 }
+		quadTextureSprite = "GFX_direct_migration_stop"
+		allow = {
+			owner = { 
+				tag = FROM 
+				has_country_flag = direct_migration
+			}			
+		}
+		effect = {
+			owner = {
+				clr_country_flag = direct_migration 
+				clr_country_flag = direct_migration_primary
+				clr_country_flag = direct_migration_accepted
+				clr_country_flag = direct_migration_nonaccepted
+				any_owned = {
+					remove_province_modifier = direct_migration_in
+					remove_province_modifier = direct_migration_out
+					
+				}
+			}
+		}
+	}
+	
+	#MOVE PRIMARY CULTURES
+	
+	provinceScriptButtonType = {
+		name = "direct_migration_pop_primary"
+		extends = "province_statistics"
+		position = { x= 300 y = 25 }
+		quadTextureSprite = "GFX_direct_migration_pop_primary"
+		allow = {
+			owner = { 
+				tag = FROM 
+				has_country_flag = direct_migration
+				NOT = { has_country_flag = direct_migration_primary }
+			}			
+		}
+		effect = {
+			owner = {
+				set_country_flag = direct_migration_primary
+				clr_country_flag = direct_migration_accepted
+				clr_country_flag = direct_migration_nonaccepted
+			}
+		}
+	}
+	#MOVE ACCEPTED CULTURES
+	
+	provinceScriptButtonType = {
+		name = "direct_migration_pop_accept"
+		extends = "province_statistics"
+		position = { x= 328 y = 25 }
+		quadTextureSprite = "GFX_direct_migration_pop_accept"
+		allow = {
+			owner = { 
+				tag = FROM 
+				has_country_flag = direct_migration
+				NOT = { has_country_flag = direct_migration_accepted }
+			}			
+		}
+		effect = {
+			owner = {
+				set_country_flag = direct_migration_accepted
+				clr_country_flag = direct_migration_primary
+				clr_country_flag = direct_migration_nonaccepted
+			}
+		}
+	}
+	
+	#MOVE NONACCEPTED CULTURES
+	
+	provinceScriptButtonType = {
+		name = "direct_migration_pop_nonaccept"
+		extends = "province_statistics"
+		position = { x= 356 y = 25 }
+		quadTextureSprite = "GFX_direct_migration_pop_nonaccept"
+		allow = {
+			owner = { 
+				tag = FROM 
+				has_country_flag = direct_migration
+				NOT = { has_country_flag = direct_migration_nonaccepted }
+			}			
+		}
+		effect = {
+			owner = {
+				set_country_flag = direct_migration_nonaccepted
+				clr_country_flag = direct_migration_primary
+				clr_country_flag = direct_migration_accepted
+			}
+		}
+	}
+	
+}

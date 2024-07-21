@@ -1,0 +1,6 @@
+state_transfer_province_select_tooltip;Select $PROVINCE$
+state_transfer_state_select_tooltip;Select $PROVINCE$'s State
+state_transfer_province_deselect_tooltip;Deselect $PROVINCE$
+state_transfer_state_deselect_tooltip;Deselect $PROVINCE$'s State
+state_transfer_deselect_all_tooltip;Clear all Selections
+state_transfer_do_transfer_tooltip;Transfer Selected to $NATION$

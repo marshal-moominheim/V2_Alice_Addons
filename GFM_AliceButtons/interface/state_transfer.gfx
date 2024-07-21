@@ -1,0 +1,27 @@
+
+spriteTypes = {
+	spriteType = {
+		name = "GFX_state_transfer_province_select"
+		texturefile = "gfx\\interface\\state_transfer_province_select.png"
+	}
+	spriteType = {
+		name = "GFX_state_transfer_province_deselect"
+		texturefile = "gfx\\interface\\state_transfer_province_deselect.png"
+	}
+	spriteType = {
+		name = "GFX_state_transfer_state_select"
+		texturefile = "gfx\\interface\\state_transfer_state_select.png"
+	}
+	spriteType = {
+		name = "GFX_state_transfer_state_deselect"
+		texturefile = "gfx\\interface\\state_transfer_state_deselect.png"
+	}
+	spriteType = {
+		name = "GFX_state_transfer_deselect_all"
+		texturefile = "gfx\\interface\\state_transfer_deselect_all.png"
+	}
+	spriteType = {
+		name = "GFX_state_transfer_do_transfer"
+		texturefile = "gfx\\interface\\state_transfer_do_transfer.png"
+	}
+}

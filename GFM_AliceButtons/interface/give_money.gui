@@ -1,0 +1,80 @@
+guiTypes = {
+
+	#GIVE MONEY
+	
+	nationScriptButtonType = {
+		name = "give_money_1"
+		extends = "diplomacy_country_facts"
+		position = { x = 42 y = 93 }
+		quadTextureSprite = "GFX_give_money_1"
+		allow = {
+			NOT = { tag = FROM }
+			FROM = { money = 10000 }
+		}
+		effect = {
+			money = 10000
+			FROM = { money = -10000}
+			
+		}
+	}
+	nationScriptButtonType = {
+		name = "give_money_2"
+		extends = "diplomacy_country_facts"
+		position = { x = 62 y = 93 }
+		quadTextureSprite = "GFX_give_money_2"
+		allow = {
+			NOT = { tag = FROM }
+			FROM = { money = 50000 }
+		}
+		effect = {
+			money = 50000
+			FROM = { money = -50000}
+			
+		}
+	}
+	nationScriptButtonType = {
+		name = "give_money_3"
+		extends = "diplomacy_country_facts"
+		position = { x = 82 y = 93 }
+		quadTextureSprite = "GFX_give_money_3"
+		allow = {
+			NOT = { tag = FROM }
+			FROM = { money = 100000 }
+		}
+		effect = {
+			money = 100000
+			FROM = { money = -100000}
+			
+		}
+	}
+	nationScriptButtonType = {
+		name = "give_money_4"
+		extends = "diplomacy_country_facts"
+		position = { x = 102 y = 93 }
+		quadTextureSprite = "GFX_give_money_4"
+		allow = {
+			NOT = { tag = FROM }
+			FROM = { money = 500000 }
+		}
+		effect = {
+			money = 500000
+			FROM = { money = -500000}
+			
+		}
+	}
+	nationScriptButtonType = {
+		name = "give_money_5"
+		extends = "diplomacy_country_facts"
+		position = { x = 122 y = 93 }
+		quadTextureSprite = "GFX_give_money_5"
+		allow = {
+			NOT = { tag = FROM }
+			FROM = { money = 1000000 }
+		}
+		effect = {
+			money = 1000000
+			FROM = { money = -1000000}
+			
+		}
+	}
+}

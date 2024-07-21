@@ -1,0 +1,146 @@
+guiTypes = {
+
+	#SELECT PROVINCE
+	
+	provinceScriptButtonType = {
+		name = "state_transfer_province_select"
+		extends = "province_view_header"
+		position = { x= 120 y = 42 }
+		quadTextureSprite = "GFX_state_transfer_province_select"
+		allow = {
+			owner = { 
+				OR = {
+					tag = FROM 
+					vassal_of = FROM
+				}
+			}	
+			NOT = { has_province_modifier = state_transfer_marked }
+		}
+		effect = {
+			add_province_modifier = { name = state_transfer_marked }
+		}
+	}
+
+	#SELECT STATE
+	
+	provinceScriptButtonType = {
+		name = "state_transfer_state_select"
+		extends = "province_view_header"
+		position = { x= 148 y = 42 }
+		quadTextureSprite = "GFX_state_transfer_state_select"
+		allow = {
+			owner = { 
+				OR = {
+					tag = FROM 
+					vassal_of = FROM
+				}
+			}	
+			NOT = { has_province_modifier = state_transfer_marked }
+		}
+		effect = {
+			state_scope = {
+				add_province_modifier = { name = state_transfer_marked }
+			}
+		}
+	}
+	#DESELECT PROVINCE
+	
+	provinceScriptButtonType = {
+		name = "state_transfer_province_deselect"
+		extends = "province_view_header"
+		position = { x= 176 y = 42 }
+		quadTextureSprite = "GFX_state_transfer_province_deselect"
+		allow = {
+			owner = { 
+				OR = {
+					tag = FROM 
+					vassal_of = FROM
+				}
+			}	
+			has_province_modifier = state_transfer_marked
+		}
+		effect = {
+			remove_province_modifier = state_transfer_marked 
+		}
+	}
+
+	#DESELECT STATE
+	
+	provinceScriptButtonType = {
+		name = "state_transfer_state_deselect"
+		extends = "province_view_header"
+		position = { x= 204 y = 42 }
+		quadTextureSprite = "GFX_state_transfer_state_deselect"
+		allow = {
+			owner = { 
+				OR = {
+					tag = FROM 
+					vassal_of = FROM
+				}
+			}	
+			has_province_modifier = state_transfer_marked
+		}
+		effect = {
+			state_scope = {
+				remove_province_modifier = state_transfer_marked 
+			}
+		}
+	}
+
+	#DESELECTA LL
+	
+	provinceScriptButtonType = {
+		name = "state_transfer_deselect_all"
+		extends = "province_view_header"
+		position = { x= 232 y = 42 }
+		quadTextureSprite = "GFX_state_transfer_deselect_all"
+		allow = {
+			owner = { 
+				OR = {
+					tag = FROM 
+					vassal_of = FROM
+				}
+				any_owned = { has_province_modifier = state_transfer_marked }
+			}	
+			
+		}
+		effect = {
+			any_country = {
+				limit = { OR = { tag = FROM vassal_of = FROM  }}
+				any_owned = { remove_province_modifier = state_transfer_marked }
+			}
+		}
+	}
+	
+	
+	#SELECT STATE
+	
+	provinceScriptButtonType = {
+		name = "state_transfer_do_transfer"
+		extends = "province_view_header"
+		position = { x= 260 y = 42 }
+		quadTextureSprite = "GFX_state_transfer_do_transfer"
+		allow = {
+			any_country = { 
+				limit = {
+					OR = {
+						tag = FROM 
+						vassal_of = FROM
+					}
+				}	
+				any_owned = { has_province_modifier = state_transfer_marked }
+			}	
+		}
+		effect = {
+			any_country = {
+				limit = { OR = { tag = FROM vassal_of = FROM  }}
+				any_owned = { 		
+					limit = { has_province_modifier  = state_transfer_marked }
+					from_bounce = {
+						secede_province = THIS
+					}
+				}
+			}
+		}
+	}
+}

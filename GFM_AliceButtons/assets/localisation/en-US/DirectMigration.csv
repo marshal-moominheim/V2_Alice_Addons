@@ -1,0 +1,8 @@
+direct_migration_in_tooltip;Relocate to $PROVINCE$
+direct_migration_stop_tooltip;Stop Relocations in $PROVINCE$
+direct_migration_out_tooltip;Deport from $PROVINCE$
+direct_migration_go_tooltip;Begin Relocation
+direct_migration_end_tooltip;Stop All Relocation
+direct_migration_pop_primary_tooltip;Relocate Primary Culture
+direct_migration_pop_accept_tooltip;Relocate Accepted Cultures
+direct_migration_pop_nonaccept_tooltip;Relocate Nonaccepted Cultures
