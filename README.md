@@ -1,5 +1,7 @@
 This repository holds some projects which use Project Alice's modding extensions to add neat new features to Victoria 2. At the moment, there are 2 projects available for download:
 
+![image](https://github.com/user-attachments/assets/93aea407-9c12-4760-a558-1c4f73bdfa84)
+
 **Dynamic Civil Wars (for HPM or AHMP)**
 
 ![image](https://github.com/user-attachments/assets/568c80a4-97f4-4c49-a0d7-9bef91d4c6a8)
