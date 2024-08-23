@@ -6,7 +6,7 @@ You know you can't make a V2 mod which doesn't have a 3-letter acronym :). This 
 
 Compared to AHMP, this mod has two notable design differences. First, instead of the AI actually being able to do anything the player can, it should only appear to be able to. The game is for the player, after all. This means I've added a couple of AI 'shackles,' especially to wargoal generation, to avoid silly or unfun outcomes. Second, I like clarity and use of base game mechanics to drive gameplay instead of event chains which may be unclear - especially to new players. This manifests in a couple of ways that I've tried to cut down on event spam, but most notably in that I've turned a couple of formables into 'unions' so they are clearer on the map. 
 
-Open to feedback and suggestions - this is still very WIP!
+Open to feedback and suggestions - this is still very WIP! It runs as an addition to base CORGI, which you can find here: https://github.com/CE277/CoRGI_puir/releases. It is not meant to run on its own!
 
 ![image](https://github.com/user-attachments/assets/93aea407-9c12-4760-a558-1c4f73bdfa84)
 
